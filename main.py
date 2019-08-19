@@ -9,7 +9,7 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class venues(ndb.Model):
+class Venues(ndb.Model):
     namer = ndb.StringProperty(required = True)
     location =  ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
@@ -18,14 +18,14 @@ class venues(ndb.Model):
     concerts = genre = ndb.StringProperty(required = False)
 
 
-class bands(ndb.Model):
+class Bands(ndb.Model):
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
     capacity = genre = ndb.StringProperty(required = False)
     accessibility = genre = ndb.StringProperty(required = False)
     venuetype = genre = ndb.StringProperty(required = False)
 
-class listeners(ndb.Model):
+class Listeners(ndb.Model):
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
 
@@ -46,6 +46,11 @@ class LoginHandler(webapp2.RequestHandler):
         # prompt user for login credentials
         # option for signup (redirects to signup page)
         pass
+
+class NoUserHandler(webapp2.RequestHandler):
+    def get(self):
+        login_url = users.create_login_url('/') #
+        self.redirect(login_url)
 
 # The signup intro page
 class SignUpHandler(webapp2.RequestHandler):
@@ -87,6 +92,7 @@ class ListenerHomeHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
   ('/', MainPageHandler),
   ('/login', LoginHandler),
+  ('/nouser', NoUserHandler)
   ('/signup', SignUpHandler),
   ('/venue', VenueHomeHandler),
   ('/band', BandHomeHandler),
