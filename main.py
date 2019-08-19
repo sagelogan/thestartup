@@ -9,25 +9,6 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class Venue(ndb.Model):
-    namer = ndb.StringProperty(required = True)
-    location =  ndb.StringProperty(required = True)
-    contact = ndb.StringProperty(required = True)
-    genre = ndb.StringProperty(required = False)
-    linktomusic = genre = ndb.StringProperty(required = False)
-    concerts = genre = ndb.StringProperty(required = False)
-
-class Band(ndb.Model):
-    namer = ndb.StringProperty(required = True)
-    contact = ndb.StringProperty(required = True)
-    capacity = genre = ndb.StringProperty(required = False)
-    accessibility = genre = ndb.StringProperty(required = False)
-    venuetype = genre = ndb.StringProperty(required = False)
-
-class Listener(ndb.Model):
-    namer = ndb.StringProperty(required = True)
-    contact = ndb.StringProperty(required = True)
-
 # The main page of the app
 class MainPageHandler(webapp2.RequestHandler):
   def get(self):
@@ -56,6 +37,14 @@ class SignUpHandler(webapp2.RequestHandler):
 # User type: Venue #
 ####################
 
+class Venue(ndb.Model):
+    namer = ndb.StringProperty(required = True)
+    location =  ndb.StringProperty(required = True)
+    contact = ndb.StringProperty(required = True)
+    genre = ndb.StringProperty(required = False)
+    linktomusic = genre = ndb.StringProperty(required = False)
+    concerts = genre = ndb.StringProperty(required = False)
+
 # The signup page for users of type venue
 class VenueSignUpHandler(webapp2.RequestHandler):
     def get(self):
@@ -77,6 +66,13 @@ class VenueProfileHandler(webapp2.RequestHandler):
 ###################
 # User type: Band #
 ###################
+
+class Band(ndb.Model):
+    namer = ndb.StringProperty(required = True)
+    contact = ndb.StringProperty(required = True)
+    capacity = genre = ndb.StringProperty(required = False)
+    accessibility = genre = ndb.StringProperty(required = False)
+    venuetype = genre = ndb.StringProperty(required = False)
 
 # The signup page for users of type band
 class BandSignUpHandler(webapp2.RequestHandler):
@@ -100,6 +96,10 @@ class BandProfileHandler(webapp2.RequestHandler):
 #######################
 # User type: Listener #
 #######################
+
+class Listener(ndb.Model):
+    namer = ndb.StringProperty(required = True)
+    contact = ndb.StringProperty(required = True)
 
 # The signup page for users of type listener
 class ListenerSignUpHandler(webapp2.RequestHandler):
