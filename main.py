@@ -9,7 +9,7 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class venues(ndb.Model):
+class Venue(ndb.Model):
     namer = ndb.StringProperty(required = True)
     location =  ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
@@ -17,19 +17,16 @@ class venues(ndb.Model):
     linktomusic = genre = ndb.StringProperty(required = False)
     concerts = genre = ndb.StringProperty(required = False)
 
-
-class bands(ndb.Model):
+class Band(ndb.Model):
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
     capacity = genre = ndb.StringProperty(required = False)
     accessibility = genre = ndb.StringProperty(required = False)
     venuetype = genre = ndb.StringProperty(required = False)
 
-class listeners(ndb.Model):
+class Listener(ndb.Model):
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
-
-
 
 # The main page of the app
 class MainPageHandler(webapp2.RequestHandler):
