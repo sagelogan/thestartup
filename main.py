@@ -134,7 +134,7 @@ app = webapp2.WSGIApplication([
   # venue
   ('/signup/venue', SignupVenueHandler),
   ('/venue', VenueHomeHandler),
-  ('/venue/profile',VenueProfileHandler),
+  ('/venue/profile', VenueProfileHandler),
   # band
   ('/signup/band', BandSignUpHandler),
   ('/band', BandHomeHandler),
