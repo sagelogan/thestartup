@@ -94,10 +94,14 @@ app = webapp2.WSGIApplication([
   ('/login', LoginHandler),
   ('/nouser', NoUserHandler)
   ('/signup', SignUpHandler),
+  ('/signup/venue', SignupVenueHandler),
+  ('/signup/band', SignupBandHandler),
+  ('/signup/listener',SignupListenerHandler),
   ('/venue', VenueHomeHandler),
   ('/band', BandHomeHandler),
   ('/listener', ListenerHomeHandler),
-  ('/venueprofile',VenueProfileHandler),
-  ('/bandprofile', BandProfileHandler),
-  ('/listenerprofile', ListenerProfileHandler),
+  ('/venue/profile',VenueProfileHandler),
+  ('/band/profile', BandProfileHandler),
+  ('/listener/profile', ListenerProfileHandler),
+  ('/search', SearchHandler),
 ])
