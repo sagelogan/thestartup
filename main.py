@@ -25,6 +25,11 @@ class LoginHandler(webapp2.RequestHandler):
         # option for signup (redirects to signup page)
         pass
 
+class NoUserHandler(webapp2.RequestHandler):
+    def get(self):
+        login_url = users.create_login_url('/') #
+        self.redirect(login_url)
+
 # The signup intro page
 class SignUpHandler(webapp2.RequestHandler):
     def get(self):
@@ -123,6 +128,7 @@ class ListenerProfileHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
   ('/', MainPageHandler),
   ('/login', LoginHandler),
+  ('/nouser', NoUserHandler)
   ('/signup', SignUpHandler),
   # venue
   ('/signup/venue', SignupVenueHandler),
