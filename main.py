@@ -67,4 +67,7 @@ app = webapp2.WSGIApplication([
   ('/venue', VenueHomeHandler),
   ('/band', BandHomeHandler),
   ('/listener', ListenerHomeHandler),
+  ('/venueprofile',VenueProfileHandler),
+  ('/bandprofile', BandProfileHandler),
+  ('/listenerprofile', ListenerProfileHandler),
 ])
