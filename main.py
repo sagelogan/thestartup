@@ -9,7 +9,11 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+<<<<<<< HEAD
 class Venues(ndb.Model):
+=======
+class Venue(ndb.Model):
+>>>>>>> fd257048a10e431f36d5fc7b33abde83e039ac52
     namer = ndb.StringProperty(required = True)
     location =  ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
@@ -17,19 +21,25 @@ class Venues(ndb.Model):
     linktomusic = genre = ndb.StringProperty(required = False)
     concerts = genre = ndb.StringProperty(required = False)
 
+<<<<<<< HEAD
 
 class Bands(ndb.Model):
+=======
+class Band(ndb.Model):
+>>>>>>> fd257048a10e431f36d5fc7b33abde83e039ac52
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
     capacity = genre = ndb.StringProperty(required = False)
     accessibility = genre = ndb.StringProperty(required = False)
     venuetype = genre = ndb.StringProperty(required = False)
 
+<<<<<<< HEAD
 class Listeners(ndb.Model):
+=======
+class Listener(ndb.Model):
+>>>>>>> fd257048a10e431f36d5fc7b33abde83e039ac52
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
-
-
 
 # The main page of the app
 class MainPageHandler(webapp2.RequestHandler):
@@ -60,10 +70,15 @@ class SignUpHandler(webapp2.RequestHandler):
         # different user types will be asked for different info
         pass
 
+####################
+# User type: Venue #
+####################
+
 # The signup page for users of type venue
 class VenueSignUpHandler(webapp2.RequestHandler):
     def get(self):
         # prompt for venue name, location, size
+        # list of info on venueapp design doc
         pass
 
 # The home page for users of type venue
@@ -71,6 +86,21 @@ class VenueHomeHandler(webapp2.RequestHandler):
     def get(self):
         # display calendar of upcoming bookings and other stats
         # option to book/contact bands in area
+        pass
+
+# The profile page for users of type venue
+class VenueProfileHandler(webapp2.RequestHandler):
+    pass
+
+###################
+# User type: Band #
+###################
+
+# The signup page for users of type band
+class BandSignUpHandler(webapp2.RequestHandler):
+    def get(self):
+        # prompt for band name, genre, link to music
+        # list of info on venueapp design doc
         pass
 
 # The home page for users of type band
@@ -81,6 +111,21 @@ class BandHomeHandler(webapp2.RequestHandler):
         # option to 'create a tour' and select locations (venues will be suggested)
         pass
 
+# The profile page for users of type band
+class BandProfileHandler(webapp2.RequestHandler):
+    pass
+
+#######################
+# User type: Listener #
+#######################
+
+# The signup page for users of type listener
+class ListenerSignUpHandler(webapp2.RequestHandler):
+    def get(self):
+        # prompt for username, favorite venues, favorite bands, etc
+        # list of info on venueapp design doc
+        pass
+
 # The home page for users of type listener
 class ListenerHomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -89,19 +134,25 @@ class ListenerHomeHandler(webapp2.RequestHandler):
         # option to buy tickets, look up events at venues, bands
         pass
 
+# The profile page for users of type Listener
+class ListenerProfileHandler(webapp2.RequestHandler):
+    pass
+
 app = webapp2.WSGIApplication([
   ('/', MainPageHandler),
   ('/login', LoginHandler),
   ('/nouser', NoUserHandler)
   ('/signup', SignUpHandler),
+  # venue
   ('/signup/venue', SignupVenueHandler),
-  ('/signup/band', SignupBandHandler),
-  ('/signup/listener',SignupListenerHandler),
   ('/venue', VenueHomeHandler),
-  ('/band', BandHomeHandler),
-  ('/listener', ListenerHomeHandler),
   ('/venue/profile',VenueProfileHandler),
+  # band
+  ('/signup/band', BandSignUpHandler),
+  ('/band', BandHomeHandler),
   ('/band/profile', BandProfileHandler),
+  # listener
+  ('/signup/listener', ListenerSignUpHandler),
+  ('/listener', ListenerHomeHandler),
   ('/listener/profile', ListenerProfileHandler),
-  ('/search', SearchHandler),
 ])
