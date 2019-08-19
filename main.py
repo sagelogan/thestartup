@@ -9,11 +9,7 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-<<<<<<< HEAD
-class Venues(ndb.Model):
-=======
 class Venue(ndb.Model):
->>>>>>> fd257048a10e431f36d5fc7b33abde83e039ac52
     namer = ndb.StringProperty(required = True)
     location =  ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
@@ -21,23 +17,14 @@ class Venue(ndb.Model):
     linktomusic = genre = ndb.StringProperty(required = False)
     concerts = genre = ndb.StringProperty(required = False)
 
-<<<<<<< HEAD
-
-class Bands(ndb.Model):
-=======
 class Band(ndb.Model):
->>>>>>> fd257048a10e431f36d5fc7b33abde83e039ac52
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
     capacity = genre = ndb.StringProperty(required = False)
     accessibility = genre = ndb.StringProperty(required = False)
     venuetype = genre = ndb.StringProperty(required = False)
 
-<<<<<<< HEAD
-class Listeners(ndb.Model):
-=======
 class Listener(ndb.Model):
->>>>>>> fd257048a10e431f36d5fc7b33abde83e039ac52
     namer = ndb.StringProperty(required = True)
     contact = ndb.StringProperty(required = True)
 
