@@ -14,7 +14,7 @@ class MainPageHandler(webapp2.RequestHandler):
   def get(self):
       # check if user logged in
       # if logged in, redirect to home page for user type (venue, band, listener)
-      # else show login page
+      # else show welcome page with option to login
       main_template = the_jinja_env.get_template('/templates/mainpage.html')
       self.response.write(main_template.render())
 
@@ -27,7 +27,7 @@ class LoginHandler(webapp2.RequestHandler):
 
 class NoUserHandler(webapp2.RequestHandler):
     def get(self):
-        login_url = users.create_login_url('/') #
+        login_url = users.create_login_url('/')
         self.redirect(login_url)
 
 # The signup intro page
@@ -36,6 +36,7 @@ class SignUpHandler(webapp2.RequestHandler):
         # ask for user type (venue, band, listener)
         # redirects to signup page for type of user
         # different user types will be asked for different info
+        # handlers for specific signup pages can be found under user type section
         pass
 
 ####################
@@ -128,7 +129,7 @@ class ListenerProfileHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
   ('/', MainPageHandler),
   ('/login', LoginHandler),
-  ('/nouser', NoUserHandler)
+  ('/nouser', NoUserHandler),
   ('/signup', SignUpHandler),
   # venue
   ('/signup/venue', SignupVenueHandler),
